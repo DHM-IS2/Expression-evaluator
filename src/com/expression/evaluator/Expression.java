@@ -1,13 +1,18 @@
+
 package com.expression.evaluator;
 
 public class Expression {
-
-    private Node node;
 
     public Expression(String string) {
         node = new Node(string);
         node.setString(string);
     }
+
+    public Object getSize() {
+        return size;
+    }
+
+
     public class Node{
 
         private Node leftChild, rightChild;
