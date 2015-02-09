@@ -8,7 +8,6 @@ public class BinaryTree {
         node = new Node(string);
         node.setString(string);
     }
-
     public class Node{
 
         private Node leftChild, rightChild;
