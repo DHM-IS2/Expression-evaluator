@@ -1,10 +1,10 @@
 package com.expression.evaluator;
 
-public class BinaryTree {
+public class Expression {
 
     private Node node;
 
-    public BinaryTree(String string) {
+    public Expression(String string) {
         node = new Node(string);
         node.setString(string);
     }
