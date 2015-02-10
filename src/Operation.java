@@ -1,15 +1,13 @@
-package com.expression.evaluator;
-
 public class Operation extends Expression{
 
     private final char operator;
     private final Expression rightChild;
     private final Expression leftChild;
 
-    public Operation(char operator, int leftValue, int rightValue){
+    public Operation(char operator, Expression leftValue, Expression rightValue){
         this.operator = operator;
-        this.leftChild = new Constant(leftValue);
-        this.rightChild = new Constant(rightValue);
+        this.leftChild = leftValue;
+        this.rightChild = rightValue;
     }
 
     @Override

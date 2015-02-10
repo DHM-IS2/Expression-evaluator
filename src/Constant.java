@@ -1,5 +1,3 @@
-package com.expression.evaluator;
-
 public class Constant extends Expression{
 
     private double value;
