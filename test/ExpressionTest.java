@@ -1,7 +1,5 @@
 import org.junit.Test;
 
-import java.beans.PropertyVetoException;
-
 import static org.junit.Assert.assertEquals;
 
 public class ExpressionTest {
