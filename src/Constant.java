@@ -1,6 +1,6 @@
-public class Constant extends Expression{
+public class Constant implements Expression{
 
-    private double value;
+    protected double value;
 
     public Constant(double value){
         this.value = value;

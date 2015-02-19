@@ -1,21 +1,13 @@
-public class Operation extends Expression{
+public abstract class Operation implements Expression{
 
-    private final char operator;
-    private final Expression rightChild;
-    private final Expression leftChild;
+    protected final Expression leftChild;
+    protected final Expression rightChild;
 
-    public Operation(char operator, Expression leftValue, Expression rightValue){
-        this.operator = operator;
+    public Operation(Expression leftValue, Expression rightValue){
         this.leftChild = leftValue;
         this.rightChild = rightValue;
     }
 
     @Override
-    public double evaluate() {
-        if (operator == '-')
-            return leftChild.evaluate() - rightChild.evaluate();
-        else if (operator == '+')
-            return leftChild.evaluate() + rightChild.evaluate();
-        return 0.0;
-    }
+    public abstract double evaluate();
 }
