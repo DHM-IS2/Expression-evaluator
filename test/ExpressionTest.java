@@ -1,20 +1,25 @@
 import org.junit.Test;
 
+import java.awt.*;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ExpressionTest {
 
     @Test
     public void  withOneExpressionConstant(){
         Constant constant = new Constant(3);
-        assertEquals(3.0, constant.evaluate(), 0);
+        assertEquals(3, constant.evaluate());
     }
 
     @Test
     public void withAddition(){
-        Operation operation = new Addition(new Constant(3),new Constant(4));
-        assertEquals(7.0, operation.evaluate(), 0);
+        Operation operation = Addition.execute(new Constant(3),new Constant(4));
+        assertEquals(7, operation.evaluate());
+        assertTrue("Integer" == operation.type());
     }
+    /*
     @Test
     public void withSubtract(){
         Operation operation = new Subtraction(new Constant(5),new Constant(4));
@@ -42,6 +47,5 @@ public class ExpressionTest {
         Operation operation3 = new Addition(new Constant(1),new Constant(3));
         Operation operation = new Subtraction(operation3 ,operation2);
         assertEquals(3.0,operation.evaluate(),0);
-    }
-
+    }*/
 }
