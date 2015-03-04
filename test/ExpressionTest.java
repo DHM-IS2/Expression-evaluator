@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ExpressionTest {
 
@@ -42,6 +43,11 @@ public class ExpressionTest {
         Operation operation3 = new Addition(new Constant(1),new Constant(3));
         Operation operation = new Subtraction(operation3 ,operation2);
         assertEquals(3.0,operation.evaluate(),0);
+    }
+    @Test
+    public void withDifferentTypes(){
+        Operation operation1 = new Addition(new Constant(3), new Constant(2));
+        assertTrue(Integer.class.isInstance(operation1.evaluate()));
     }
 
 }
