@@ -1,13 +1,18 @@
 public class Constant implements Expression{
 
-    protected double value;
+    protected Object value;
 
-    public Constant(double value){
+    public Constant(Object value){
         this.value = value;
     }
 
     @Override
-    public double evaluate() {
+    public Object evaluate() {
         return value;
+    }
+
+    @Override
+    public String type() {
+        return value.getClass().getSimpleName();
     }
 }

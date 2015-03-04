@@ -4,7 +4,12 @@ public class Multiplication extends Operation{
         super(leftValue, rightValue);
     }
 
-    public double evaluate (){
-        return leftChild.evaluate() * rightChild.evaluate();
+    public Object evaluate (){
+        return null;
+    }
+
+    @Override
+    public String type() {
+        return null;
     }
 }

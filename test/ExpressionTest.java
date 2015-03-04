@@ -1,6 +1,10 @@
 import org.junit.Test;
 
+
+import java.lang.reflect.InvocationTargetException;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class ExpressionTest {
@@ -8,14 +12,24 @@ public class ExpressionTest {
     @Test
     public void  withOneExpressionConstant(){
         Constant constant = new Constant(3);
-        assertEquals(3.0, constant.evaluate(), 0);
+        assertEquals(3, constant.evaluate());
+        assertTrue("Integer".equals(constant.type()));
     }
 
     @Test
-    public void withAddition(){
-        Operation operation = new Addition(new Constant(3),new Constant(4));
-        assertEquals(7.0, operation.evaluate(), 0);
+    public void withIntegerIntegerAddition() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        Operation operation = Addition.execute(new Constant(3), new Constant(4));
+        assertEquals(7, operation.evaluate());
+        assertTrue("Integer".equals(operation.type()));
     }
+    @Test
+    public void withIntegerDoubleAddition() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        Operation operation = Addition.execute(new Constant(3), new Constant(4.5));
+        assertEquals(7.5,operation.evaluate());
+        assertTrue("Double".equals(operation.type()));
+        //assertThat(operation.evaluate(),is(7.5));
+    }
+    /*
     @Test
     public void withSubtract(){
         Operation operation = new Subtraction(new Constant(5),new Constant(4));
@@ -50,4 +64,5 @@ public class ExpressionTest {
         assertTrue(Integer.class.isInstance(operation1.evaluate()));
     }
 
+    }*/
 }

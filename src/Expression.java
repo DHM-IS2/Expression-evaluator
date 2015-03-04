@@ -1,4 +1,6 @@
 public interface Expression {
 
-    public double evaluate();
+    public Object evaluate();
+
+    public String type();
 }
