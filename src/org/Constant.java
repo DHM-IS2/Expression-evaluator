@@ -1,6 +1,8 @@
+package org;
+
 public class Constant implements Expression{
 
-    protected Object value;
+    private Object value;
 
     public Constant(Object value){
         this.value = value;

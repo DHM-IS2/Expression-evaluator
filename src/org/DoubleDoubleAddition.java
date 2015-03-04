@@ -1,3 +1,5 @@
+package org;
+
 public class DoubleDoubleAddition extends Addition{
 
     public DoubleDoubleAddition(Expression leftValue, Expression rightValue) {

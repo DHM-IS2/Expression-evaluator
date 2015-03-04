@@ -1,3 +1,5 @@
+package org;
+
 public class IntegerDoubleAddition extends Addition{
 
 
