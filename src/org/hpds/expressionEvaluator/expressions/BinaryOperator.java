@@ -7,8 +7,8 @@ import java.lang.reflect.InvocationTargetException;
 
 public abstract class BinaryOperator extends Operator{
 
-    private final Expression leftChild;
-    private final Expression rightChild;
+    protected final Expression leftChild;
+    protected final Expression rightChild;
 
     public BinaryOperator(Expression leftChild, Expression rightChild) {
         this.leftChild = leftChild;

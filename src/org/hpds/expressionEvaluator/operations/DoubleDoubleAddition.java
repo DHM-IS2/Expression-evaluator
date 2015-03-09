@@ -1,21 +1,21 @@
 package org.hpds.expressionEvaluator.operations;
 
-import org.hpds.expressionEvaluator.Expression;
-import org.hpds.expressionEvaluator.expressions.Add;
+import java.lang.reflect.InvocationTargetException;
 
-public class DoubleDoubleAddition extends Add {
+public class DoubleDoubleAddition extends BinaryOperation {
 
-    public DoubleDoubleAddition(Expression leftValue, Expression rightValue) {
+    public DoubleDoubleAddition(Object leftValue, Object rightValue) {
         super(leftValue, rightValue);
     }
 
+
     @Override
-    public Object evaluate() {
-        return (Double) leftChild.evaluate() + (Double) rightChild.evaluate();
+    public Object value() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        return (Double) getLeftChild() + (Double) getRightChild();
     }
 
     @Override
-    public String type() {
+    public String type() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         return "Double";
     }
 }

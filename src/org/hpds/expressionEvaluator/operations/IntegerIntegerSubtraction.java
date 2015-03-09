@@ -1,24 +1,20 @@
 package org.hpds.expressionEvaluator.operations;
 
-import org.hpds.expressionEvaluator.expressions.Divide;
-import org.hpds.expressionEvaluator.Expression;
+import java.lang.reflect.InvocationTargetException;
 
-/**
- * Created by Pepe on 04/03/2015.
- */
-public class IntegerIntegerSubtraction extends Divide {
+public class IntegerIntegerSubtraction extends BinaryOperation{
 
-    public IntegerIntegerSubtraction(Expression leftValue, Expression rightValue) {
+    public IntegerIntegerSubtraction(Object leftValue, Object rightValue) {
         super(leftValue, rightValue);
     }
 
     @Override
-    public Object evaluate() {
-        return (Integer) leftChild.evaluate() - (Integer) rightChild.evaluate();
+    public Object value() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        return (Integer) getLeftChild() - (Integer) getRightChild();
     }
 
     @Override
-    public String type() {
+    public String type() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         return "Integer";
     }
 }

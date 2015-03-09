@@ -1,22 +1,20 @@
 package org.hpds.expressionEvaluator.operations;
 
-import org.hpds.expressionEvaluator.Expression;
-import org.hpds.expressionEvaluator.expressions.Add;
+import java.lang.reflect.InvocationTargetException;
 
-public class IntegerIntegerAddition extends Add {
+public class IntegerIntegerAddition extends BinaryOperation {
 
-
-    public IntegerIntegerAddition(Expression leftValue, Expression rightValue) {
+    public IntegerIntegerAddition(Object leftValue, Object rightValue) {
         super(leftValue, rightValue);
     }
 
     @Override
-    public Object evaluate(){
-        return (Integer) leftChild.evaluate() + (Integer) rightChild.evaluate();
+    public Object value() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        return (Integer) getLeftChild() + (Integer) getRightChild();
     }
 
     @Override
-    public String type() {
+    public String type() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         return "Integer";
     }
 }

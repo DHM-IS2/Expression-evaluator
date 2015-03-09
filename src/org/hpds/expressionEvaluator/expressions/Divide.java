@@ -1,9 +1,7 @@
 package org.hpds.expressionEvaluator.expressions;
 
 import org.hpds.expressionEvaluator.Expression;
-import org.hpds.expressionEvaluator.operations.BinaryOperation;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class Divide extends BinaryOperator {
