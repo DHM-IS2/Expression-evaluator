@@ -1,9 +1,7 @@
-package org.hpds.expressionEvaluator.expressions;
+package org.hpds.expressionevaluator.expressions;
 
-import org.hpds.expressionEvaluator.Expression;
-import org.hpds.expressionEvaluator.operations.BinaryOperation;
+import org.hpds.expressionevaluator.Expression;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class Multiplicate extends BinaryOperator {

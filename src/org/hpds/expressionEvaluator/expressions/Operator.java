@@ -1,14 +1,14 @@
-package org.hpds.expressionEvaluator.expressions;
+package org.hpds.expressionevaluator.expressions;
 
-import org.hpds.expressionEvaluator.Evaluable;
-import org.hpds.expressionEvaluator.Expression;
+import org.hpds.expressionevaluator.Evaluable;
+import org.hpds.expressionevaluator.Expression;
 
 import java.lang.reflect.InvocationTargetException;
 
 public abstract class Operator implements Expression, Evaluable{
 
     public String typeOf(Object operand) {
-        return operand.getClass().getName();
+        return operand.getClass().getSimpleName();
     }
 
     public Evaluable evaluable(Expression expression){

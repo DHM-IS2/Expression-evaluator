@@ -1,6 +1,6 @@
-package org.hpds.expressionEvaluator.expressions;
+package org.hpds.expressionevaluator.expressions;
 
-import org.hpds.expressionEvaluator.Expression;
+import org.hpds.expressionevaluator.Expression;
 import java.lang.reflect.InvocationTargetException;
 
 public class Subtract extends BinaryOperator {

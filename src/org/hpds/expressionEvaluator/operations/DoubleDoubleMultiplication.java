@@ -1,6 +1,6 @@
-package org.hpds.expressionEvaluator.operations;
+package org.hpds.expressionevaluator.operations;
 
-import org.hpds.expressionEvaluator.Expression;
+import org.hpds.expressionevaluator.Expression;
 
 import java.lang.reflect.InvocationTargetException;
 

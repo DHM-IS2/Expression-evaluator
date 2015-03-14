@@ -1,4 +1,4 @@
-package org.hpds.expressionEvaluator;
+package org.hpds.expressionevaluator;
 
 import java.lang.reflect.InvocationTargetException;
 

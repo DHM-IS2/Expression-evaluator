@@ -1,6 +1,6 @@
-package org.hpds.expressionEvaluator.operations;
+package org.hpds.expressionevaluator.operations;
 
-import org.hpds.expressionEvaluator.Evaluable;
+import org.hpds.expressionevaluator.Evaluable;
 
 public abstract class BinaryOperation implements Evaluable {
 
