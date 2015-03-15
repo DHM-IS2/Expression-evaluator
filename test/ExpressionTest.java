@@ -1,68 +1,64 @@
+import org.hpds.expressionevaluator.Evaluable;
+import org.hpds.expressionevaluator.expressions.*;
 import org.junit.Test;
 
-
-import java.lang.reflect.InvocationTargetException;
-
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class ExpressionTest {
 
     @Test
-    public void  withOneExpressionConstant(){
-        Constant constant = new Constant(3);
-        assertEquals(3, constant.evaluate());
+    public void withOneExpressionConstant() throws ReflectiveOperationException {
+        Evaluable constant = new Constant(3);
+        assertThat(constant.value(), is(3));
         assertTrue("Integer".equals(constant.type()));
     }
 
     @Test
-    public void withIntegerIntegerAddition() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        Operation operation = Addition.execute(new Constant(3), new Constant(4));
-        assertEquals(7, operation.evaluate());
-        assertTrue("Integer".equals(operation.type()));
-    }
-    @Test
-    public void withIntegerDoubleAddition() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        Operation operation = Addition.execute(new Constant(3), new Constant(4.5));
-        assertEquals(7.5,operation.evaluate());
-        assertTrue("Double".equals(operation.type()));
-        //assertThat(operation.evaluate(),is(7.5));
-    }
-    /*
-    @Test
-    public void withSubtract(){
-        Operation operation = new Subtraction(new Constant(5),new Constant(4));
-        assertEquals(1.0, operation.evaluate(), 0);
-    }
-    @Test
-    public void withMultiplication(){
-        Operation operation = new Multiplication(new Constant(2),new Constant(4));
-        assertEquals(8.0,operation.evaluate(),0);
-    }
-    @Test
-    public void withDivision(){
-        Operation operation = new Division(new Constant(9),new Constant(2));
-        assertEquals(4.5,operation.evaluate(),0);
-    }
-    @Test
-    public void withTwoOperations(){
-        Operation operation2 = new Subtraction(new Constant(2),new Constant(1));
-        Operation operation = new Addition(operation2 ,new Constant(5));
-        assertEquals(6.0,operation.evaluate(),0);
-    }
-    @Test
-    public void withThreeOperations(){
-        Operation operation2 = new Subtraction(new Constant(2),new Constant(1));
-        Operation operation3 = new Addition(new Constant(1),new Constant(3));
-        Operation operation = new Subtraction(operation3 ,operation2);
-        assertEquals(3.0,operation.evaluate(),0);
-    }
-    @Test
-    public void withDifferentTypes(){
-        Operation operation1 = new Addition(new Constant(3), new Constant(2));
-        assertTrue(Integer.class.isInstance(operation1.evaluate()));
+    public void withIntegerIntegerAddition() throws ReflectiveOperationException {
+        Evaluable binaryOperation = new Add(new Constant(3), new Constant(4));
+        assertThat(binaryOperation.value(), is(7));
+        assertTrue("Integer".equals(binaryOperation.type()));
     }
 
-    }*/
+    @Test
+    public void withIntegerDoubleAddition() throws ReflectiveOperationException {
+        Operator binaryOperation = new Add(new Constant(3), new Constant(4.5));
+        assertThat(binaryOperation.value(), is(7.5));
+        assertTrue("Double".equals(binaryOperation.type()));
+    }
+
+    @Test
+    public void withSubtract() throws ReflectiveOperationException {
+        Operator binaryOperation = new Subtract(new Constant(5), new Constant(4));
+        assertThat(binaryOperation.value(), is(1));
+    }
+
+    @Test
+    public void withMultiplication() throws ReflectiveOperationException {
+        Operator binaryOperation = new Multiplicate(new Constant(2), new Constant(4));
+        assertThat(binaryOperation.value(), is(8));
+    }
+
+    @Test
+    public void withDivision() throws ReflectiveOperationException {
+        Operator binaryOperation = new Divide(new Constant(8), new Constant(2));
+        assertThat(binaryOperation.value(), is(4));
+    }
+
+    @Test
+    public void withTwoOperations() throws ReflectiveOperationException {
+        Operator binaryOperation2 = new Subtract(new Constant(2), new Constant(1));
+        Operator binaryOperation = new Add(binaryOperation2, new Constant(5));
+        assertThat(binaryOperation.value(), is(6));
+    }
+
+    @Test
+    public void withThreeOperations() throws ReflectiveOperationException {
+        Operator binaryOperation2 = new Subtract(new Constant(2), new Constant(1));
+        Operator binaryOperation3 = new Add(new Constant(1), new Constant(3));
+        Operator binaryOperation = new Subtract(binaryOperation3, binaryOperation2);
+        assertThat(binaryOperation.value(), is(3));
+    }
 }
